@@ -1,0 +1,23 @@
+.container{
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 20;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+
+}
+.table{
+  border-collapse: collapse;
+  background-color: #ffb6b6;
+  padding: 20px;
+  border-spacing: 20px;
+}
+.table th{
+  padding: 5px;
+  background-color: lightgray;
+}
+.entrega{
+  padding-left: 10px;
+  padding-top: 10px;
+}

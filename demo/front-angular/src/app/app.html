@@ -1,0 +1,86 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="app.css">
+<div class="container">
+  <h1>📋 Directorio de Usuarios</h1>
+  <p class="subtitulo">Datos consumidos desde JSONPlaceholder API</p>
+
+  <!-- Estado: Cargando -->
+  <div *ngIf="cargando()" class="estado-cargando">
+    ⏳ Cargando usuarios...
+  </div>
+
+  <!-- Estado: Error -->
+  <div *ngIf="error()" class="estado-error">
+    ❌ {{ error() }}
+  </div>
+
+  <!-- Estado: Datos cargados -->
+  <div *ngIf="!cargando() && !error()">
+    <p class="contador">Total de usuarios: <strong>{{ usuarios().length }}</strong></p>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Empresa</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let usuario of usuarios()">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.name }}</td>
+        <td>@{{ usuario.username }}</td>
+        <td>
+          <a [href]="'mailto:' + usuario.email">{{ usuario.email }}</a>
+        </td>
+        <td>{{ usuario.phone }}</td>
+        <td>{{ usuario.company.name }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="entrega">
+    <h2>Entrega clase</h2>
+
+  </div>
+
+  <h1>📝 Posts</h1>
+  <p class="subtitulo">Datos consumidos desde JSONPlaceholder API</p>
+
+  <!-- Estado: Cargando posts -->
+  <div *ngIf="cargandoPosts()" class="estado-cargando">
+    ⏳ Cargando posts...
+  </div>
+
+  <!-- Estado: Error posts -->
+  <div *ngIf="errorPosts()" class="estado-error">
+    ❌ {{ errorPosts() }}
+  </div>
+
+  <!-- Estado: Posts cargados -->
+  <div *ngIf="!cargandoPosts() && !errorPosts()">
+    <p class="contador">Total de posts: <strong>{{ posts().length }}</strong></p>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Cuerpo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts()">
+          <td>{{ post.id }}</td>
+          <td>{{ post.title }}</td>
+          <td>{{ post.body }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
